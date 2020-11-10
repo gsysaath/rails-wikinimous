@@ -1,0 +1,26 @@
+<div class="navbar navbar-light bg-light justify-content-between border-bottom p-4">
+  <div>
+    <%= link_to "Wikiminous", articles_path, class: "text-secondary" %>
+  </div>
+  <div>
+    <%= link_to "Create a new Task", new_article_path, class: "text-secondary" %>
+  </div>
+</div>
+
+<div class="container d-flex justify-content-left mt-5">
+  <div class="row">
+    <div class="col">
+      <h2><%= @article.title %></h2>
+      <hr>
+      <p><%= @article.content %></p>
+      <%= link_to "Edit", edit_article_path(@article) %>
+      <p></p>
+      <%= link_to "Delete #{@article.title}",
+                  article_path(@article),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+      <hr>
+      <%= link_to "Back to all articles", articles_path %>
+    </div>
+  </div>
+</div>
